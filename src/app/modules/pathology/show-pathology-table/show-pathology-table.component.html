@@ -1,0 +1,104 @@
+<!-- <div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table accordion">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Referenced Doctor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-bs-toggle="collapse" data-bs-target="#r1">
+                    <th scope="row">1 <i class="fa-solid fa-chevron-down"></i></th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr class="collapse accordion-collapse" id="r1" data-bs-parent=".table">
+                    <td colspan="5"> Item 1 detail .. This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow. </td>
+                </tr>
+                <tr data-bs-toggle="collapse" data-bs-target="#r2">
+                    <th scope="row">2 <i class="fa-solid fa-chevron-down"></i></th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr class="collapse accordion-collapse" id="r2" data-bs-parent=".table">
+                    <td colspan="5"> Item 2 detail .. This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow. </td>
+                </tr>
+                <tr data-bs-toggle="collapse" data-bs-target="#r3">
+                    <th scope="row">3 <i class="fa-solid fa-chevron-down"></i></th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr class="collapse accordion-collapse" id="r3" data-bs-parent=".table">
+                    <td colspan="5"> Item 3 detail .. This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow. </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+<div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Patient Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Age</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Refered By</th>
+          <th scope="col">Tests</th>
+          <th scope="col">Ordered Date</th>
+          <th scope="col">Result Date</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listOfTests">
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.patientName }}</td>
+          <td>{{ item.patientPhone }}</td>
+          <td>{{ item.age }}</td>
+          <td>{{ item.gender }}</td>
+          <td>{{ item.refferedBy }}</td>
+
+          <td>
+            <span  *ngFor="let a of item.pathologyLists" >{{a.labTestName}} &nbsp;</span>
+          </td>
+
+          
+          
+          <td>{{ item.testDate }}</td>
+          <td>{{ item.resultDate }}</td> 
+
+          
+          <!-- <td>{{ item.date}}</td>
+           <td>
+      <a class="btn btn-dark" [routerLink]="['/editappointment',item.id]">Edit</a>
+      <a class="btn btn-danger" (click)="deletelist(item.id)">Delete</a>
+          </td> -->
+          
+        <!-- </tr>  -->
+        
+        
+        <br><br>
+      </tbody>
+    </table>
+    
+  
+    <a class="btn btn-primary" routerLink="/pathologytable/pathologyform">Create</a>
+
+   
+  
+  </div>
+  

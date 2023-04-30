@@ -1,0 +1,177 @@
+<!-- 
+
+ <div class="container">
+    <main class="main">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <h4 class="mb-3">patient Information</h4>
+          <form>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">Patient name</label>
+                <input type="text" class="form-control">
+              </div>
+  
+  
+  
+              <div class="col-5">
+                <label for="username" class="form-label">Phone</label>
+                <div class="input-group">
+                  <input type="tel" class="form-control">
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="email" class="form-label"> Address</label>
+                <input type="text" class="form-control">
+              </div>
+  
+              <div class="col-sm-2">
+                <label for="firstName" class="form-label">Age</label>
+                <input type="text" class="form-control">
+              </div> 
+
+
+              <div class="input-group mb-sm-3">
+                <label   class="input-group-text" for="inputGroupSelect01">Gender</label>
+                <select  class="form-select-sm" id="inputGroupSelect01"   formControlName="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  
+                </select>
+              </div>
+
+              <div class="mb-sm-1">
+      
+                <label for="txtPrice" class="form-label">Pathology Tests</label></div>
+              <div class="form-check form-check-inline">
+                <input formControlName="x_ray" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="X-ray" />
+                <label class="form-check-label" for="inlineCheckbox1">X-Ray</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input formControlName="mri" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="MRI" />
+                <label class="form-check-label" for="inlineCheckbox2">MRI</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input formControlName="hormone" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="CBC"  />
+                <label class="form-check-label" for="inlineCheckbox3">CBC</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input formControlName="cbc" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Hormone"  />
+                <label class="form-check-label" for="inlineCheckbox3">Hormone</label> 
+            </div>
+            <br><br><br>
+  
+              <div class="col-sm-2">
+                <label for="firstName" class="form-label">Order Date</label>
+                <input type="date" class="form-control">
+              </div>
+
+              <div class="col-sm-2">
+                <label for="firstName" class="form-label">Result Date</label>
+                <input type="date" class="form-control">
+              </div>
+  
+            </div> <br><br>
+            
+            <div>
+            <button class="btn btn-primary" type="submit">Order Test</button>
+        </div>
+          </form>
+        </div>
+      </div>
+    </main> -->
+
+    <div class="container">
+        <legend>Pathology Form</legend>
+        <form [formGroup]="pathologyForm" (ngSubmit) = "submit()" >
+            
+          <div class="mb-3">
+            <label for="txtName" class="form-label">Patient Name</label><br>
+            <input type="text"  formControlName="patientName" class="form-control-md"  />
+          </div>
+          <div class="mb-3">
+            <label for="txtPrice" class="form-label">Phone</label><br>
+            <input type="number" formControlName="patientPhone" class="form-control-md"  />
+          </div>
+    
+          <div class="mb-3">
+            <label for="txtPrice" class="form-label">Age</label><br>
+            <input type="number" formControlName="age" class="form-control-md"  />
+          </div>
+          
+          <div class="mb-3">
+            <label for="txtPrice" class="form-label">Refered By</label><br>
+            <input type="text" formControlName="refferedBy" class="form-control-md"  />
+          </div>
+    
+          
+    
+          <div class="input-group mb-sm-3">
+            <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+            <select  class="form-select-sm" id="inputGroupSelect01"   formControlName="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              
+            </select>
+          </div>
+          
+          <div class="mb-sm-1">
+            <label for="txtPrice" class="form-label">Pathology Tests</label>
+          </div>
+
+
+          <div >
+            <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownCheckBoxList" formControlName="pathologyLists">
+            </ng-multiselect-dropdown>
+          </div>
+
+          
+          <!-- <div class="form-check form-check-inline">
+            <input formControlName="x_ray" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="X-ray" />
+            <label class="form-check-label" for="inlineCheckbox1">X-Ray</label>
+          </div>
+          
+          <div class="form-check form-check-inline">
+            <input formControlName="mri" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="MRI" />
+            <label class="form-check-label" for="inlineCheckbox2">MRI</label>
+          </div>
+          
+          <div class="form-check form-check-inline">
+            <input formControlName="hormone" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="CBC"  />
+            <label class="form-check-label" for="inlineCheckbox3">CBC</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input formControlName="cbc" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Hormone"  />
+            <label class="form-check-label" for="inlineCheckbox3">Hormone</label> 
+        </div> -->
+        <br><br>
+    
+        <div class="mb-3"></div>
+        <label for="start">Test taking date:</label>
+    
+    <input formControlName="testDate" type="date" id="start" name="trip-start">
+    
+    <div class="mb-3"></div>
+        <label for="start">Test result date:</label>
+    
+    <input formControlName="resultDate" type="date" id="start" name="trip-start">
+          
+          <div class="mb-3">
+            <label for="txtPrice" class="form-label">Total</label><br>
+            <input type="number" formControlName="total" class="form-control-md"  />
+          </div>
+         
+          <button type="submit"  class="btn btn-primary">Create Pathology Test</button>
+        </form>
+      </div>
+    
+    
+    
+    
+    
+    
+    
+    
