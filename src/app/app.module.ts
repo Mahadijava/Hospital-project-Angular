@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreatePrescriptionComponent } from './modules/prescription/create-prescription/create-prescription.component';
 import { EditPrescriptionComponent } from './modules/prescription/edit-prescription/edit-prescription.component';
 import { ShowPrescriptionComponent } from './modules/prescription/show-prescription/show-prescription.component';
+import { AdmissionFormComponent } from './modules/admission/admission-form/admission-form.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ShowPrescriptionComponent } from './modules/prescription/show-prescript
     CreatePrescriptionComponent,
     EditPrescriptionComponent,
     ShowPrescriptionComponent,
+    AdmissionFormComponent
     
   ],
   imports: [

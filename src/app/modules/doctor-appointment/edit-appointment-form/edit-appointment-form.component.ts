@@ -19,10 +19,10 @@ doctorlist: DoctorsBean[]=[];
 specializationList: any[] = [];
 
 
-cardiologyList : string[] = ['Mahadi', 'Tamal', 'Nazim'];
-  neurologyList : string[] = ['Asif', 'Ashraf', 'Selim'];
-  eurologyList : string[] = ['Taher', 'Russel', 'Abdul Kadir'];
-  dermatologyList: string[] = ['Meetu', 'Shajnin', 'Riaz'];
+// cardiologyList : string[] = ['Mahadi', 'Tamal', 'Nazim'];
+//   neurologyList : string[] = ['Asif', 'Ashraf', 'Selim'];
+//   eurologyList : string[] = ['Taher', 'Russel', 'Abdul Kadir'];
+//   dermatologyList: string[] = ['Meetu', 'Shajnin', 'Riaz'];
 
   
 
@@ -35,6 +35,7 @@ cardiologyList : string[] = ['Mahadi', 'Tamal', 'Nazim'];
 
   id !: number;
 
+ 
   ngOnInit(): void {
 
     this.editForm = new FormGroup( {
@@ -50,21 +51,26 @@ cardiologyList : string[] = ['Mahadi', 'Tamal', 'Nazim'];
       recommendation: new FormControl(),
   });
 
+  this.id = this.route.snapshot.params['id'];
+  this.editAppointment(this.id);
+
   this.appointservice.getDepartmentList().subscribe({
     next: (res: any) => { this.specializationList= res;}, 
     error: console.log
   });
 
-    this.id = this.route.snapshot.params['id'];
-    this.editAppointment(this.id);
+ 
+
     
   }
 
    editAppointment(id: number) {
     this.appointservice.editById(id).subscribe((data) => {
-
+     
       this.edObject = data;
-      console.log(this.edObject)
+      console.log(data)
+      console.log(this.edObject.doctorName);
+      
       this.editForm = new FormGroup( {
         patientName: new FormControl(data.patientName),
         patientPhone: new FormControl(data.patientPhone),
@@ -72,7 +78,7 @@ cardiologyList : string[] = ['Mahadi', 'Tamal', 'Nazim'];
         age: new FormControl(data.age),
          gender: new FormControl(data.gender),
         department: new FormControl(data.department), 
-        doctorName: new FormControl(data.doctorName),
+        doctorName: new FormControl(this.edObject.doctorName),
         appointmentDate: new FormControl(data.appointmentDate),
         recommendation: new FormControl(data.recommendation), })
     });

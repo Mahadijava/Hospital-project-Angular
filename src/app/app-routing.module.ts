@@ -9,10 +9,11 @@ import { SignupEmployeeComponent } from './components/signup-employee/signup-emp
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path:'admin', loadChildren: () => import('./modules/admin/admin.module').then((m)=> m.AdminModule ), },
-  {path:'user', loadChildren: () => import('./modules/user/user.module').then((m)=> m.UserModule ), },
+  {path:'user', loadChildren: () => import('./modules/admission/admission.module').then((m)=> m.AdmissionModule ), },
   {path:'appointmentlist', loadChildren: () => import('./modules/doctor-appointment/doctor-appointment.module').then((m)=> m.DoctorAppointmentModule ), },
   {path:'pathologytable', loadChildren: () => import('./modules/pathology/pathology.module').then((m)=> m.PathologyModule ), },
   {path:'prescriptionform', loadChildren:()=> import('./modules/prescription/prescription.module').then((m)=>m.PrescriptionModule),},
+  {path:'admission', loadChildren:()=> import('./modules/admission/admission.module').then((m)=>m.AdmissionModule),},
 
   {path: 'login', component: LoginComponent, data: { showSidenav: false } },
   {path: 'doctorsignup', component: SignupDoctorComponent},
