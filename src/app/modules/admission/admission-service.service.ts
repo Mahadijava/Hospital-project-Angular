@@ -42,4 +42,12 @@ export class AdmissionServiceService {
   public selectBed(dep: string){
     return this.http.get<iAdmissionBean[]>('http://localhost:8080/doctor-signup/specialized-doctorslist?dep='+dep)
   }
+
+  public getCabintype(){
+    return this.http.get<iAdmissionBean[]>('http://localhost:8080/cabintype')
+  }
+
+  public getRoomByCabinType(cabin: string){
+    return this.http.get<iAdmissionBean[]>('http://localhost:8080/room?cabintype='+cabin)
+  }
 }

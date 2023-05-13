@@ -62,7 +62,8 @@ export class CreateAppointmentFormComponent implements OnInit {
   }
 
   selectDoctor() {
-    this.appointservice.getDoctorByDept(this.appointForm.value.department).subscribe((res: any) => {
+    this.appointservice.getDoctorByDept(this.appointForm.value.department).
+    subscribe((res: any) => {
       this.doctorlist = res
     },);
 

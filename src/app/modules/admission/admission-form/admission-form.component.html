@@ -34,12 +34,8 @@
       <div class="input-group mb-sm-3">
         <label class="input-group-text" for="inputGroupSelect01">Department</label>
         <select  class="form-select" id="inputGroupSelect01" (change)="selectDoctor()"  formControlName="department">
-
           <!-- (change)="selectDoctor() = who will change automatically if this method is called -->
-
           <option *ngFor="let item of specializationList" value="{{item.specialized}}">{{item.specialized}}</option>
-
-         
         </select>
       </div>
 
@@ -52,15 +48,24 @@
       </div>
 
       <div class="input-group mb-sm-3">
-        <label class="input-group-text" for="inputGroupSelect01">Department</label>
-        <select  class="form-select" id="inputGroupSelect01" (change)="selectDoctor()"  formControlName="department">
-
+        <label class="input-group-text" for="inputGroupSelect01">Cabin Type</label>
+        <select  class="form-select" id="inputGroupSelect01" (change)="getRoomList()"  formControlName="cabinType">
           <!-- (change)="selectDoctor() = who will change automatically if this method is called -->
-
-          <option *ngFor="let item of specializationList" value="{{item.specialized}}">{{item.specialized}}</option>
-
-         
+          <option *ngFor="let item of cabinTypeList" value="{{item.cabinType}}">{{item.cabinType}}</option> 
         </select>
+      </div>
+
+      <div class="input-group mb-sm-3">
+        <label class="input-group-text" for="inputGroupSelect01">Room Number</label>
+        <select class="form-select" id="inputGroupSelect01" (change)="getSelectedRoom()" formControlName="roomNumber">
+          <option *ngFor="let item of roomList" value="{{item.roomNumber}}">{{item.roomNumber}}</option> 
+        </select>
+      </div>
+
+
+      <div class="input-group mb-sm-3">
+        <label class="input-group-text" for="inputGroupSelect01">Room Price</label>
+        <input readonly="readonly" type="number" formControlName="price" value="{{room.price}}" class="col-xs-2"  >
       </div>
 
 
