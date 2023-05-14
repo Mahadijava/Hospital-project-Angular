@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'appointmentlist', loadChildren: () => import('./modules/doctor-appointment/doctor-appointment.module').then((m)=> m.DoctorAppointmentModule ), },
   {path:'pathologytable', loadChildren: () => import('./modules/pathology/pathology.module').then((m)=> m.PathologyModule ), },
   {path:'prescriptionform', loadChildren:()=> import('./modules/prescription/prescription.module').then((m)=>m.PrescriptionModule),},
-  {path:'admission', loadChildren:()=> import('./modules/admission/admission.module').then((m)=>m.AdmissionModule),},
+  {path:'admissionform', loadChildren:()=> import('./modules/admission/admission.module').then((m)=>m.AdmissionModule),},
+  
 
   {path: 'login', component: LoginComponent, data: { showSidenav: false } },
   {path: 'doctorsignup', component: SignupDoctorComponent},

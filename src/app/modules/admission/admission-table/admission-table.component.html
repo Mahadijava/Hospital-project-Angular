@@ -1,0 +1,61 @@
+<div style="margin-left: -60px;" class="container">
+    <table style="width: 1550px; " class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Patient Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">gender</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Cabin Type</th>
+            <th scope="col">Room number</th>
+            <th scope="col">Cabin Price</th>
+      
+            <th scope="col">Admission Date</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Admission Status</th>
+            <!-- <th scope="col">Date</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of admissiontable">
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.patientName }}</td>
+            <td>{{ item.patientPhone }}</td>
+            <td>{{ item.patientAddress}}</td>
+            <td>{{ item.gender }}</td>
+            <td>{{ item.doctorName }}</td>
+            <td>{{ item.department }}</td>
+            <td>{{ item.cabinType }}</td>
+            <td>{{ item.roomNumber }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.admissionDate }}</td>
+            <td>{{ item.releaseDate }}</td>
+            <td>
+              <button class="btn btn-primary me-3" [ngClass]="{'blue' : toggle, 'green': !toggle}">{{status}}</button>
+            </td>
+            
+           
+
+            <!-- <td> 
+              <a class="btn btn-primary" (click)="pendingOrDoneStatus(item.id)" [routerLink]="['/prescriptionform']">Create Prescription</a> <br>
+            </td> -->
+
+            <!-- <td>
+        <a class="btn btn-dark" [routerLink]="['/appointmentlist/edit-appointmenform',item.id]">Edit</a>
+        <a class="btn btn-danger" (click)="deletelist(item.id)">Delete</a>
+            </td> -->
+            
+          </tr> <br><br>
+          
+        </tbody>
+      </table>
+
+     
+      
+    
+      
+     
+    

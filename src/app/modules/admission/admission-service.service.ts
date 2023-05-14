@@ -12,23 +12,23 @@ export class AdmissionServiceService {
   constructor(private http: HttpClient) { }
 
   public getAdmissionList():Observable<iAdmissionBean[]>{
-    return this.http.get<iAdmissionBean[]>(`${this.api}/appointment/post`);
+    return this.http.get<iAdmissionBean[]>(`${this.api}/patientadmission/post`);
   }
 
-  public saveAdmission(appointment:iAdmissionBean): Observable<iAdmissionBean>{
-    return this.http.post<iAdmissionBean>(`${this.api}/appointment/post`, appointment);
+  public saveAdmission(admission:iAdmissionBean): Observable<iAdmissionBean>{
+    return this.http.post<iAdmissionBean>(`${this.api}/patientadmission/post`, admission);
   }
 
-  public updateAdmission(appointment: iAdmissionBean): Observable<iAdmissionBean>{
-      return this.http.put<iAdmissionBean>(`${this.api}/appointment/post/${appointment.id}`, appointment);
+  public updateAdmission(admission: iAdmissionBean): Observable<iAdmissionBean>{
+      return this.http.put<iAdmissionBean>(`${this.api}/patientadmission/post/${admission.id}`, admission);
   }
 
   public editById(id: number): Observable<iAdmissionBean>{
     
-    return this.http.get<iAdmissionBean>(`${this.api}/appointment/post/${id}`);
+    return this.http.get<iAdmissionBean>(`${this.api}/patientadmission/post/${id}`);
   }
   public deleteAdmission(id:number){
-    return this.http.delete(`${this.api}/appointment/post/${id}`);
+    return this.http.delete(`${this.api}/patientadmission/post/${id}`);
   }
 
   public getDoctorByDept(dep: string){
