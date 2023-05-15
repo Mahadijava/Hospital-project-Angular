@@ -60,11 +60,12 @@
           <th scope="col">Tests</th>
           <th scope="col">Ordered Date</th>
           <th scope="col">Result Date</th>
+          <th scope="col">Total Amount</th>
           
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of listOfTests">
+        <tr *ngFor="let item of listOfTests ">
           <th scope="row">{{ item.id }}</th>
           <td>{{ item.patientName }}</td>
           <td>{{ item.patientPhone }}</td>
@@ -75,11 +76,9 @@
           <td>
             <span  *ngFor="let a of item.pathologyLists" >{{a.labTestName}} &nbsp;</span>
           </td>
-
-          
-          
           <td>{{ item.testDate }}</td>
           <td>{{ item.resultDate }}</td> 
+          <td>{{ item.total }}</td> 
 
           
           <!-- <td>{{ item.date}}</td>

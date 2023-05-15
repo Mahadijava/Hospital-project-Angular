@@ -124,7 +124,7 @@
 
 
           <div >
-            <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownCheckBoxList" formControlName="pathologyLists">
+            <ng-multiselect-dropdown (onSelect)="onItemSelect($event)"  [(ngModel)]="selectedOption" (change)="runMethod(selectedOption)" [settings]="dropdownSettings" [data]="dropdownCheckBoxList" formControlName="pathologyLists" (click)="printData()">
             </ng-multiselect-dropdown>
           </div>
 

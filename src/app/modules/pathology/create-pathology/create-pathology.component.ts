@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PathologyBean } from '../pathology';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { PathologyServiceService } from '../pathology-service.service';
@@ -10,7 +10,7 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
   templateUrl: './create-pathology.component.html',
   styleUrls: ['./create-pathology.component.css']
 })
-export class CreatePathologyComponent implements OnInit {
+export class CreatePathologyComponent implements OnInit, OnChanges {
 
   pathologyPatientList : any[] = [];
   pathologyForm !: FormGroup;
@@ -19,6 +19,45 @@ export class CreatePathologyComponent implements OnInit {
   dropdownSettings:IDropdownSettings={};
 
   constructor(private pathologyService: PathologyServiceService, private router: Router, private fb: FormBuilder){}
+
+total1!: any;
+n:any;
+
+  // onItemSelect(event: any){
+  // console.log(event.labTestName);
+
+  // this.pathologyService.getAllLabTestAmount(event.labTestName).subscribe({
+  //  next(value) {
+  //   this.total1 = value;
+  //  },
+  //  error(err) {
+  //    console.log(err);
+     
+  //  },
+  // })
+  
+  // }
+
+
+  onItemSelect(event: any){
+      this.pathologyService.getAllLabTestAmount(event.labTestName).subscribe((data)=> {
+        this.total1 += data;
+        console.log(this.total1);
+        
+      } )
+    }
+
+  selectedOption!: string;
+
+  runMethod(value: string): void {
+    console.log(this.selectedOption);
+    
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+   console.log(changes);
+   
+  }
   
   submit(){
     console.log(this.pathologyForm.value);
@@ -28,10 +67,19 @@ export class CreatePathologyComponent implements OnInit {
   }
 
   
-  selectCheckBoxLabTest(){
-
-  }
+  selectCheckBoxLabTest(){}
  
+  printData(){
+    console.log("amount");
+//     for(let i of this.selectedItems){
+console.log(this.selectedItems);
+
+//     }
+
+for (let i = 0; i < this.selectedItems.length; i++) {
+  console.log(this.selectedItems);
+  }
+  }
 
 
   ngOnInit(): void {

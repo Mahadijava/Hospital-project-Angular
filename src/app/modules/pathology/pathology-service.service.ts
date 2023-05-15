@@ -16,6 +16,10 @@ export class PathologyServiceService {
     return this.http.get<PathologyBean[]>(`${this.api}/pathologypatient/post`);
   }
 
+  public getAllLabTestAmount(testName: any):Observable<any>{
+    return this.http.get<any>(this.api + "/totalAmount/" + testName);
+  }
+
   public addPathology(pathology:PathologyBean): Observable<PathologyBean>{
     return this.http.post<PathologyBean>(`${this.api}/pathologypatient/post`, pathology);
   }
@@ -35,4 +39,6 @@ export class PathologyServiceService {
   public getAllLabTestNames():Observable<any[]>{
     return this.http.get<any[]>(`${this.api}/pathologylist`);
   }
+
+
 }
