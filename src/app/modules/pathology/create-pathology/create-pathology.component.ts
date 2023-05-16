@@ -40,9 +40,12 @@ n:any;
 
 
   onItemSelect(event: any){
+    console.log('hjjjjjjjjjjjjjjj');
+    
       this.pathologyService.getAllLabTestAmount(event.labTestName).subscribe((data)=> {
-        this.total1 += data;
-        console.log(this.total1);
+        // this.total1 += data;
+
+        // console.log(this.total1);
         
       } )
     }
@@ -72,13 +75,15 @@ n:any;
   printData(){
     console.log("amount");
 //     for(let i of this.selectedItems){
-console.log(this.selectedItems);
+console.log(this.pathologyForm.value.pathologyLists);
+
+
 
 //     }
 
-for (let i = 0; i < this.selectedItems.length; i++) {
-  console.log(this.selectedItems);
-  }
+// for (let i = 0; i < this.pathologyForm.value.pathologyLists.length; i++) {
+//   console.log(this.pathologyForm.value.pathologyLists[i]);
+//   }
   }
 
 
