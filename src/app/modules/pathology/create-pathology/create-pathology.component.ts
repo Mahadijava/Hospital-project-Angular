@@ -20,7 +20,7 @@ export class CreatePathologyComponent implements OnInit, OnChanges {
 
   constructor(private pathologyService: PathologyServiceService, private router: Router, private fb: FormBuilder){}
 
-total1!: any;
+total1: number = 0;
 n:any;
 
   // onItemSelect(event: any){
