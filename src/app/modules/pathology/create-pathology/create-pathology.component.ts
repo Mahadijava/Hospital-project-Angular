@@ -20,36 +20,32 @@ export class CreatePathologyComponent implements OnInit, OnChanges {
 
   constructor(private pathologyService: PathologyServiceService, private router: Router, private fb: FormBuilder){}
 
-total1: number = 0;
-n:any;
+totalAmount: number = 0;
 
-  // onItemSelect(event: any){
-  // console.log(event.labTestName);
-
-  // this.pathologyService.getAllLabTestAmount(event.labTestName).subscribe({
-  //  next(value) {
-  //   this.total1 = value;
-  //  },
-  //  error(err) {
-  //    console.log(err);
-     
-  //  },
-  // })
-  
-  // }
 
 
   onItemSelect(event: any){
-    console.log('hjjjjjjjjjjjjjjj');
+    console.log(event);
     
       this.pathologyService.getAllLabTestAmount(event.labTestName).subscribe((data)=> {
-        // this.total1 += data;
-
-        // console.log(this.total1);
+        this.totalAmount += data;
+        console.log(this.totalAmount);
         
       } )
     }
 
+    // Handle item deselection
+  onItemDeSelect(item: any) {
+    // Handle unselected item
+
+    this.pathologyService.getAllLabTestAmount(item.labTestName).subscribe((data)=> {
+      this.totalAmount -= data;
+      console.log(this.totalAmount);
+      
+    } )
+    
+  
+  }
   selectedOption!: string;
 
   runMethod(value: string): void {
@@ -69,29 +65,18 @@ n:any;
     )
   }
 
-  
-  selectCheckBoxLabTest(){}
  
   printData(){
-    console.log("amount");
-//     for(let i of this.selectedItems){
+console.log("amount");
 console.log(this.pathologyForm.value.pathologyLists);
-
-
-
-//     }
-
-// for (let i = 0; i < this.pathologyForm.value.pathologyLists.length; i++) {
-//   console.log(this.pathologyForm.value.pathologyLists[i]);
-//   }
-  }
+}
 
 
   ngOnInit(): void {
 
     this.dropdownCheckBoxList = [];
     this.dropdownSettings = {
-      idField: 'id',
+      idField: 'id', // json থেকে model এর যেই ফিল্ড নেইম গুলো এসেছে ঠিক সেগুলো দিতে হবে।  
       textField: 'labTestName',
     };
 

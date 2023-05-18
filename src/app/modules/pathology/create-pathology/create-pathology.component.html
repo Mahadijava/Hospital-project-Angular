@@ -124,7 +124,7 @@
 
 
           <div >
-            <ng-multiselect-dropdown (onSelect)="onItemSelect($event)"  [(ngModel)]="selectedOption" (change)="runMethod(selectedOption)" [settings]="dropdownSettings" [data]="dropdownCheckBoxList" formControlName="pathologyLists" (click)="printData()">
+            <ng-multiselect-dropdown (onSelect)="onItemSelect($event)"  (onDeSelect)="onItemDeSelect($event)" [(ngModel)]="selectedOption" (change)="runMethod(selectedOption)" [settings]="dropdownSettings" [data]="dropdownCheckBoxList" formControlName="pathologyLists" (click)="printData()">
             </ng-multiselect-dropdown>
           </div>
 
@@ -161,7 +161,7 @@
           
           <div class="mb-3">
             <label for="txtPrice" class="form-label">Total</label><br>
-            <input type="number" formControlName="total" class="form-control-md"  />
+            <input type="number" formControlName="total" [(ngModel)]="totalAmount" class="form-control-md"  />
           </div>
          
           <button type="submit"  class="btn btn-primary">Create Pathology Test</button>
