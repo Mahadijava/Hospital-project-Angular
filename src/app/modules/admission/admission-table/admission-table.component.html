@@ -1,6 +1,6 @@
 <div style="margin-left: -60px;" class="container">
     <table style="width: 1550px; " class="table">
-        <thead>
+        <thead style="font-size: smaller;">
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Patient Name</th>
@@ -16,6 +16,7 @@
             <th scope="col">Admission Date</th>
             <th scope="col">Release Date</th>
             <th scope="col">Admission Status</th>
+            <th scope="col">Billing</th>
             <!-- <th scope="col">Date</th> -->
           </tr>
         </thead>
@@ -33,6 +34,9 @@
             <td>{{ item.price }}</td>
             <td>{{ item.admissionDate }}</td>
             <td>{{ item.releaseDate }}</td>
+            <td>
+              <button class="btn btn-primary me-3" [ngClass]="{'blue' : toggle, 'green': !toggle}">{{item.admissionStatus}}</button>
+            </td>
             <td>
               <button class="btn btn-primary me-3" [ngClass]="{'blue' : toggle, 'green': !toggle}">{{status}}</button>
             </td>

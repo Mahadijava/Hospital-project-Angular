@@ -1,4 +1,4 @@
-export interface iAdmissionBean{
+export interface patientBill{
     id: number;
     patientName: string,
     age: string,
@@ -13,8 +13,15 @@ export interface iAdmissionBean{
     description: string,
     admissionDate: string,
     releaseDate: string,
-    billingStatus: string,
-    admissionStatus: string;
-
-
+    stayingDays: number;
+    total: number;
+    discount: number;
+    doctorVisit: string;
+    visitDate: String;
+    doctorCharge: number;
+    case: string;
+    medicine:string;
+    medicinePrice: number;
+    surgeryDetails: string;
+    surgeryCost: number;
 }

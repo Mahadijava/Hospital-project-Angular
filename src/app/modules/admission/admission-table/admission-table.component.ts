@@ -21,6 +21,8 @@ export class AdmissionTableComponent implements OnInit {
     this.admissionservice.getAdmissionList().subscribe((data:iAdmissionBean[])=> {this.admissiontable = data;} )
   }
 
+
+  
   status = "Admitted";
   toggle = true;
 //button click function
@@ -30,13 +32,6 @@ admittedOrReleasedStatus(id: number)
         this.status = this.toggle ? "Admitted" : "Released";
       }
 
-  recommendation = "No Recommendation";
-  toggle1 = true;
-//button click function
-needAdmissionOrNot(id: number)
-      {
-        this.toggle1 = !this.toggle1;
-        this.recommendation = this.toggle1 ? "No Recommendation" : "Needs Admission";
-      }
+ 
 
 }

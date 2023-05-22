@@ -53,11 +53,18 @@ export class AdmissionFormComponent {
 
   }
 
+
+
+
   submit() {
     // this.admissionForm.value.status = "Pending";
-    // this.admissionForm.value.recommendation = "No Recommendation";
-    console.log(this.admissionForm.value);
+// this.admissionForm.value.recommendation = "No Recommendation";
+
+console.log(this.admissionForm.value);
+
     // this.admissionForm.value.roomNumber = this.admissionForm.value.room.roomNumber;
+
+    
     //this.appointservice.createAppointment(this.appointForm.value).subscribe((next)=>{this.ngOnInit()})         save database only without routing
     this.admissionService.saveAdmission(this.admissionForm.value).subscribe((res: iAdmissionBean) => { this.router.navigate(["admissionform/admissionlist"]) },)
 
