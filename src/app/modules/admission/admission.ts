@@ -11,8 +11,8 @@ export interface iAdmissionBean{
     roomNumber:string,
     price: number,
     description: string,
-    admissionDate: string,
-    releaseDate: string,
+    admissionDate: Date,
+    releaseDate: Date,
     billingStatus: string,
     admissionStatus: string;
 

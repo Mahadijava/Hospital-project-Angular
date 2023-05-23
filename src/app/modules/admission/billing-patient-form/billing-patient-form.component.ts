@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { AdmissionServiceService } from '../admission-service.service';
 
 @Component({
@@ -13,9 +13,12 @@ export class BillingPatientFormComponent implements OnInit {
   billForm !: FormGroup;
 
 
-  constructor(private admissionService: AdmissionServiceService, private router: Router) { }
+  constructor(private admissionService: AdmissionServiceService, private router: Router, ) { }
 
   ngOnInit(): void {
+    console.log(new Date().getDate());
+
+    
     this.billForm = new FormGroup({
       patientName: new FormControl(),
       patientPhone: new FormControl(),
@@ -41,7 +44,15 @@ export class BillingPatientFormComponent implements OnInit {
       medicinePrice: new FormControl(),
       surgeryDetails: new FormControl(),
       surgeryCost: new FormControl(),
-    })
+    });
+
+   
+    
   }
+
+
+   
+
+  
 
 }

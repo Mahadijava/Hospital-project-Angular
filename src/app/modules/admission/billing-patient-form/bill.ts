@@ -11,13 +11,13 @@ export interface patientBill{
     roomNumber:string,
     price: number,
     description: string,
-    admissionDate: string,
-    releaseDate: string,
+    admissionDate: Date,
+    releaseDate: Date,
     stayingDays: number;
     total: number;
     discount: number;
     doctorVisit: string;
-    visitDate: String;
+    visitDate: Date;
     doctorCharge: number;
     case: string;
     medicine:string;

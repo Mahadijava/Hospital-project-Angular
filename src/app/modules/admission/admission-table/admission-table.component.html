@@ -38,7 +38,7 @@
               <button class="btn btn-primary me-3" [ngClass]="{'blue' : toggle, 'green': !toggle}">{{item.admissionStatus}}</button>
             </td>
             <td>
-              <button class="btn btn-primary me-3" [ngClass]="{'blue' : toggle, 'green': !toggle}">{{status}}</button>
+              <button class="btn btn-primary me-3" [routerLink]="['/admissionform/billingpatient', item.id]" >Bill</button>
             </td>
             
            
