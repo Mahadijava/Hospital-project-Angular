@@ -5,6 +5,7 @@ import { AdmissionRoutingModule } from './admission-routing.module';
 import { AdmissionFormComponent } from './admission-form/admission-form.component';
 import { AdmissionTableComponent } from './admission-table/admission-table.component';
 import { BillingPatientFormComponent } from './billing-patient-form/billing-patient-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,8 @@ import { BillingPatientFormComponent } from './billing-patient-form/billing-pati
   imports: [
     CommonModule,
     AdmissionRoutingModule,
-    
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdmissionModule { }

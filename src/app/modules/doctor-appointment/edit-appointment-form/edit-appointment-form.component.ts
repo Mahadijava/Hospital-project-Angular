@@ -58,11 +58,8 @@ specializationList: any[] = [];
     next: (res: any) => { this.specializationList= res;}, 
     error: console.log
   });
-
- 
-
-    
   }
+
 
    editAppointment(id: number) {
     this.appointservice.editById(id).subscribe((data) => {

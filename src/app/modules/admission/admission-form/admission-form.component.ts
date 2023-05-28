@@ -35,7 +35,7 @@ export class AdmissionFormComponent {
       roomNumber: new FormControl(),
       price: new FormControl(0),
       description: new FormControl(),
-      admissionDate: new FormControl(),
+      createdAt: new FormControl(),
       releaseDate: new FormControl(),
       status: new FormControl(),
       totalBedBill: new FormControl(),

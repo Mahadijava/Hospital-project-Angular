@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { iAdmissionBean } from './admission';
 import { Observable } from 'rxjs';
+import { patientBill } from './billing-patient-form/bill';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class AdmissionServiceService {
       return this.http.put<iAdmissionBean>(`${this.api}/patientadmission/post/${admission.id}`, admission);
   }
 
-  public editById(id: number): Observable<iAdmissionBean>{
+  public getById(id: number): Observable<iAdmissionBean>{
     
     return this.http.get<iAdmissionBean>(`${this.api}/patientadmission/post/${id}`);
   }
@@ -50,4 +51,11 @@ export class AdmissionServiceService {
   public getRoomByCabinType(cabin: string){
     return this.http.get<iAdmissionBean[]>('http://localhost:8080/room?cabintype='+cabin)
   }
+
+  // billing service
+
+  public saveBillingInfo(payment:patientBill): Observable<patientBill>{
+    return  this.http.post<patientBill>(`${this.api}/billingpatient/post`, payment);
+  }
+  
 }

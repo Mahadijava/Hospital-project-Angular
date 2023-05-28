@@ -12,6 +12,7 @@ export interface iAdmissionBean{
     price: number,
     description: string,
     admissionDate: Date,
+    createdAt: Date,
     releaseDate: Date,
     billingStatus: string,
     admissionStatus: string;

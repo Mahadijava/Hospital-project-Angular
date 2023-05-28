@@ -32,7 +32,7 @@
             <td>{{ item.cabinType }}</td>
             <td>{{ item.roomNumber }}</td>
             <td>{{ item.price }}</td>
-            <td>{{ item.admissionDate }}</td>
+            <td>{{ item.createdAt | date: 'dd-MM-yyyy h:mm a' }}</td>
             <td>{{ item.releaseDate }}</td>
             <td>
               <button class="btn btn-primary me-3" [ngClass]="{'blue' : toggle, 'green': !toggle}">{{item.admissionStatus}}</button>

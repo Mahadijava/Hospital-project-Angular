@@ -15,6 +15,7 @@ import { CreatePrescriptionComponent } from './modules/prescription/create-presc
 import { EditPrescriptionComponent } from './modules/prescription/edit-prescription/edit-prescription.component';
 import { ShowPrescriptionComponent } from './modules/prescription/show-prescription/show-prescription.component';
 import { AdmissionFormComponent } from './modules/admission/admission-form/admission-form.component';
+import { DdMmYYYYDatePipe } from './dd-mm-yyyy-date.pipe';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AdmissionFormComponent } from './modules/admission/admission-form/admis
     CreatePrescriptionComponent,
     EditPrescriptionComponent,
     ShowPrescriptionComponent,
-    AdmissionFormComponent
+    AdmissionFormComponent,
+    DdMmYYYYDatePipe
     
   ],
   imports: [

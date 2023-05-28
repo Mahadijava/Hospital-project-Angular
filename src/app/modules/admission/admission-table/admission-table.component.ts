@@ -18,7 +18,9 @@ export class AdmissionTableComponent implements OnInit {
   }
 
   showAdmissionTable(){
-    this.admissionservice.getAdmissionList().subscribe((data:iAdmissionBean[])=> {this.admissiontable = data;} )
+    this.admissionservice.getAdmissionList().subscribe((data:iAdmissionBean[])=> {this.admissiontable = data;
+    console.log(this.admissiontable);
+    } )
   }
 
 

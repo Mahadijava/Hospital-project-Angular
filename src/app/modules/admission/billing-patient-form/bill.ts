@@ -13,7 +13,7 @@ export interface patientBill{
     description: string,
     admissionDate: Date,
     releaseDate: Date,
-    stayingDays: number;
+    stayingHours: number;
     total: number;
     discount: number;
     doctorVisit: string;
