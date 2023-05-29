@@ -42,9 +42,9 @@ export class BillingPatientFormComponent implements OnInit {
       description: new FormControl(),
       createdAt: new FormControl(),
       releaseDate: new FormControl(),
-      stayingHours: new FormControl(0),
-      total: new FormControl(),
-      discount: new FormControl(),
+      stayingDays: new FormControl(0),
+      total: new FormControl(0),
+      billDiscount: new FormControl(),
       doctorVisit: new FormControl(),
       visitDate: new FormControl(),
       doctorCharge: new FormControl(),
@@ -62,11 +62,15 @@ export class BillingPatientFormComponent implements OnInit {
   submitBillingInfo(){
     console.log(this.billForm.value);
     this.getDiffDays();
-    this.billForm.patchValue({stayingDays:this.stayingHours})
-    this.admissionService.saveBillingInfo(this.billForm.value).subscribe((res: patientBill)=>{
-      this.router.navigate(["admissionform/admissionlist"]);
-    })
+    this.billForm.value.stayingDays = this.patientStayingDays;
+    this.billForm.value.total = this.totalBill;
 
+    this.admissionService.saveBillingInfo(this.billForm.value).subscribe((res: patientBill)=>{
+
+      this.admittedOrReleasedStatus();
+
+      
+    })
 
     
   }
@@ -80,6 +84,7 @@ export class BillingPatientFormComponent implements OnInit {
       console.log(data);
 
       this.billForm = new FormGroup({
+        id: new FormControl(data.id),
         patientName: new FormControl(data.patientName),
         age: new FormControl(data.age),
         patientPhone: new FormControl(data.patientPhone),
@@ -98,21 +103,21 @@ export class BillingPatientFormComponent implements OnInit {
     
   }
 
-  // hours: any;
+  // pId :number = this.billForm.value.id;
+  
+  
 
+  // hours: any;
   // getDiffDays() {
-    
   //   var startDate = new Date(this.billForm.value.createdAt);
   //   var endDate = new Date(this.billForm.value.releaseDate);
 
   //   var Time = endDate.getTime() - startDate.getTime();
   //   console.log('hour---',Time / (1000 * 3600));
   //   this.hours = this.hours = Math.round(Time / (1000 * 3600));
-
-    
   // }
 
-  stayingHours !: number;
+  patientStayingDays !: number;
 
    getDiffDays() {
     
@@ -121,12 +126,54 @@ export class BillingPatientFormComponent implements OnInit {
 
     var Time = endDate.getTime() - startDate.getTime();
     console.log('hour---',Time / (1000 * 3600));
-    this.stayingHours = this.stayingHours = Math.round(Time / (1000 * 3600));
-
+    console.log('days -- ', Time/ (24 * 60 * 60 * 1000));
     
+     this.patientStayingDays = Math.round(Math.abs(Time/ (24 * 60 * 60 * 1000)));
+
+    this.getCabinBill(this.patientStayingDays, this.billForm.value.price);
+    
+  }
+  additionalCharge :number = 0;
+  discount : number= 0;
+  totalBill : number = 0;
+  cabinBill : number = 0;
+
+  getCabinBill(hours:number,cabinPrice: number){
+
+    this.cabinBill = this.patientStayingDays * this.billForm.value.price;
+    console.log('cabin bill --- ', this.cabinBill); 
+    this.totalBill = this.cabinBill;
   }
 
 
+
+  addAditional(){
+    this.totalBill+=this.additionalCharge;
+  }
+
+  addDiscount(){
+    this.totalBill-=this.discount;
+  }
+
+
+
+  admittedOrReleasedStatus()
+  {
+
+    this.editAdmission.releaseDate = this.billForm.value.releaseDate;
+    this.editAdmission.admissionStatus = "Released";
+    this.admissionService.updateAdmission(this.editAdmission).subscribe({
+
+      next: res=>{
+        // alert("Data Updated")
+        this.router.navigate(["admissionform/admissionlist"]);
+
+      },
+      error:console.log
+      
+    });
+    
+  }
 
 
 }

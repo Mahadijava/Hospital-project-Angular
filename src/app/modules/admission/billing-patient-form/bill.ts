@@ -15,7 +15,7 @@ export interface patientBill{
     releaseDate: Date,
     stayingHours: number;
     total: number;
-    discount: number;
+    billDiscount: number;
     doctorVisit: string;
     visitDate: Date;
     doctorCharge: number;
