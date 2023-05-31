@@ -28,7 +28,7 @@
           <div>
             <h6 class="my-0">Additional charges</h6>
           </div>
-          <input type="number" [(ngModel)]="additionalCharge"   (input)="addAditional()"/> 
+          <input type="number" [(ngModel)]="additionalCharge"   (change)="addAditional()"/> 
         </li>
 
 
@@ -36,7 +36,7 @@
           <div>
             <h6 class="my-0">Discount</h6>
           </div>
-          <input type="number"  [(ngModel)]="discount"  (input)="addDiscount()"/> 
+          <input type="number"  [(ngModel)]="discount"  (change)="addDiscount()"/> 
         </li>
 
 
