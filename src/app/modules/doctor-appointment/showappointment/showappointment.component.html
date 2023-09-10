@@ -19,14 +19,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of listofAppointment">
-            <th scope="row">{{ item.id }}</th>
+            <th>{{item}}</th>
+            <!-- <th scope="row">{{ item.id }}</th>
             <td>{{ item.patientName }}</td>
             <td>{{ item.patientPhone }}</td>
             <td>{{ item.patientAddress}}</td>
             <td>{{ item.gender }}</td>
             <td>{{ item.doctorName }}</td>
             <td>{{ item.department }}</td>
-            <td>{{ item.appointmentDate }}</td>
+            <td>{{ item.appointmentDate }}</td> -->
             <td>
               <button class="btn btn-primary me-3" [ngClass]="{'blue' : toggle, 'green': !toggle}">{{status}}</button>
             </td>
@@ -44,7 +45,9 @@
         <a class="btn btn-danger" (click)="deletelist(item.id)">Delete</a>
             </td>
             
-          </tr> <br><br>
+          </tr> 
+          
+          <br><br>
           <a class="btn btn-primary" routerLink="/appointmentlist/appointmentform">Create</a>
         </tbody>
       </table>
