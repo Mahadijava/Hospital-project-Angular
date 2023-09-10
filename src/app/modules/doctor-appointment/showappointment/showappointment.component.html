@@ -17,18 +17,20 @@
             <!-- <th scope="col">Date</th> -->
           </tr>
         </thead>
+        
         <tbody>
           <tr *ngFor="let item of listofAppointment">
-            <th>{{item}}</th>
-            <!-- <th scope="row">{{ item.id }}</th>
+            
+            <th scope="row">{{ item.id }}</th>
             <td>{{ item.patientName }}</td>
             <td>{{ item.patientPhone }}</td>
             <td>{{ item.patientAddress}}</td>
             <td>{{ item.gender }}</td>
             <td>{{ item.doctorName }}</td>
             <td>{{ item.department }}</td>
-            <td>{{ item.appointmentDate }}</td> -->
-            <td>
+            <td>{{ item.appointmentDate }}</td> 
+
+          <td>
               <button class="btn btn-primary me-3" [ngClass]="{'blue' : toggle, 'green': !toggle}">{{status}}</button>
             </td>
             
